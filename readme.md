@@ -4,6 +4,8 @@
 
 ## 配置说明
 
+> 以下为markdown示例
+
 ```markdown
 <div id='speak'></speak>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/ispeak-bbtalk@1.1.0-beta/ispeak.min.js" charset="utf-8" ></script>
@@ -12,11 +14,11 @@ ispeak
     .init({
       el: '#speak',
       name: 'DreamyTZK 🦄', // 显示的昵称
-      envId: '腾讯云开发环境id',
-      region: '腾讯云环境默认 ap-shanghai',
-      limit: '每次加载的数据条数',
-      avatar: '头像链接地址',
-      fromcolor:'from来源背景色'
+      envId: '腾讯云开发环境id', // 环境id
+      region: 'ap-shanghai', // 腾讯云地址，默认为上海
+      limit: 10, // 每次加载的条数，默认为5
+      avatar: 'https://cdn.jsdelivr.net/npm/kang-static@latest/avatar.jpg',
+      fromcolor:'rgb(245, 150, 170)'
     })
     .then(function() {
       console.log('ispeak 加载完成')
@@ -24,3 +26,4 @@ ispeak
 </script>
 ```
 
+> 其他注意事项： 云数据库名称必须为`talks`才可以，目前不支持指定数据库名称。
