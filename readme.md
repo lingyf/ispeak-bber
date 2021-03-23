@@ -1,6 +1,6 @@
 ## 说明
 
-此项目仅仅作为[哔哔](https://immmmm.com/bb-by-wechat-pro/)的前端数据展示。
+此项目仅仅作为[哔哔点啥](https://immmmm.com/bb-by-wechat-pro/)的前端数据展示。
 
 ## 配置说明
 
@@ -8,7 +8,7 @@
 
 ```markdown
 <div id='speak'></speak>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/ispeak-bbtalk@1.1.0-beta/ispeak.min.js" charset="utf-8" ></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/ispeak-bber@1.1.0-beta/ispeak.min.js" charset="utf-8" ></script>
 <script>
 ispeak
     .init({
