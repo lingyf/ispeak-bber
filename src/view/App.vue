@@ -43,7 +43,7 @@ export default {
         fromcolor = 'rgb(245, 150, 170)',
         avatar
       } = Vue.prototype.$speakData;
-      const { data } = await axios.get(requestUrl, {
+      const { data } = await axios.get(jsonfile, {
         params: {
           date: Date.now()
         }
