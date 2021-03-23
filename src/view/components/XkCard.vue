@@ -3,7 +3,7 @@
  * @author: 小康
  * @url: https://xiaokang.me
  * @Date: 2021-03-19 09:17:45
- * @LastEditTime: 2021-03-23 17:06:24
+ * @LastEditTime: 2021-03-23 22:45:58
  * @LastEditors: 小康
 -->
 <template>
@@ -30,7 +30,7 @@
     <div class="xk-card-content" v-html="content"></div>
     <div class="xk-card-footer">
       <div
-        :style="'background:' + fromcolor + ';color:white;'"
+        :style="'background: ' + fromColor + ';color:' + 'white'"
         class="xk-card-label"
       >
         {{ from }}
@@ -42,7 +42,7 @@
 import marked from 'marked';
 
 export default {
-  props: ['speakData', 'name', 'avatar', 'fromcolor'],
+  props: ['bbData', 'name', 'avatar', 'fromColor'],
   data() {
     return {
       content: '',
@@ -51,9 +51,9 @@ export default {
     };
   },
   mounted() {
-    this.content = this.formatBody(this.speakData.content);
-    this.from = this.speakData.from;
-    this.date = this.formatTime(this.speakData.date);
+    this.content = this.formatBody(this.bbData.content);
+    this.from = this.bbData.from;
+    this.date = this.formatTime(this.bbData.date);
   },
   methods: {
     formatBody: (body) => {
@@ -115,7 +115,8 @@ export default {
       }
       return result;
     }
-  }
+  },
+  watch: {}
 };
 </script>
 <style scoped>
@@ -146,6 +147,8 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 20px;
 }
 .xk-card .xk-card-header .xk-card-name {
   display: flex;
@@ -168,11 +171,15 @@ export default {
 }
 
 .xk-card .xk-card-content {
-  padding: 20px 0;
+  padding: 10px 0;
+}
+.xk-card .xk-card-content p img {
+  max-width: 20%;
 }
 .xk-card .xk-card-footer {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  padding-bottom: 10px;
 }
 .xk-card .xk-card-footer .xk-card-label {
   border-radius: 5px;
@@ -181,5 +188,8 @@ export default {
   border-radius: 3px;
   box-shadow: inset 0 -1px 0 rgb(27 31 35 / 12%);
   font-size: 14px;
+  cursor: pointer;
+  user-select: none;
+  margin-right: 10px;
 }
 </style>

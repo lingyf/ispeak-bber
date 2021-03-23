@@ -1,19 +1,18 @@
 <template>
   <div class="xk-footer">
-    Powered by <a href="https://xiaokang.me" target="_blank">{{ name }}</a> v{{
+    Powered by <a href="https://xiaokang.me" target="_blank">iSpeak</a> v{{
       version
     }}
   </div>
 </template>
 
 <script>
-import { version, name } from '../../../package.json';
+import { version } from '../../../package.json';
 
 export default {
   data() {
     return {
-      version,
-      name
+      version
     };
   },
   methods: {},

@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"
     />
-    <title>iSpeak Demo</title>
+    <title>Twikoo Demo</title>
     <link
       rel="stylesheet"
       type="text/css"
@@ -43,17 +43,18 @@
       function init() {
         ispeak
           .init({
-            jsonfile: document.getElementById('jsonfile').value,
-            avatar: document.getElementById('avatar').value,
-            fromcolor: document.getElementById('fromcolor').value,
+            envId: document.getElementById('envId').value,
             el: '#tcomment',
+            region: document.getElementById('region').value,
+            avatar: document.getElementById('avatar').value,
             name: document.getElementById('name').value,
+            limit: document.getElementById('limit').value,
             onCommentLoaded: function() {
               console.log('评论加载完成')
             }
           })
           .then(function() {
-            console.log('ispeak 加载完成')
+            console.log('Twikoo 加载完成')
           })
       }
     </script>
@@ -61,7 +62,7 @@
       <div class="container">
         <nav class="navbar">
           <div class="navbar-brand">
-            <a class="navbar-item" href="#"><strong>iSpeak</strong></a>
+            <a class="navbar-item" href="#"><strong>Twikoo</strong></a>
           </div>
           <div class="navbar-menu">
             <div class="navbar-start">
@@ -71,8 +72,8 @@
               <div class="navbar-item">
                 <a
                   class="button is-light"
-                  href="https://github.com/DreamyTZK/iSpeak"
-                  >View on Gitlab</a
+                  href="https://github.com/imaegoo/twikoo"
+                  >View on Github</a
                 >
               </div>
             </div>
@@ -85,54 +86,66 @@
         <div class="columns">
           <div class="configs column">
             <div class="field">
-              <label class="label">Json File Url: <code>jsonfile</code></label>
+              <label class="label"
+                >环境 ID | Environment ID: <code>envId</code></label
+              >
               <div class="control">
                 <input
                   class="input"
-                  id="jsonfile"
+                  id="envId"
                   type="text"
-                  placeholder="https://636f-comment-5gj5t55m7efcd73d-1251136071.tcb.qcloud.la/json/bber.json"
-                  value="https://636f-comment-5gj5t55m7efcd73d-1251136071.tcb.qcloud.la/json/bber.json"
+                  placeholder="e.g comment-5gj5t55m7efcd73d"
+                  value="comment-5gj5t55m7efcd73d"
                 />
               </div>
             </div>
             <div class="field">
-              <label class="label">昵称 | name: <code>name</code></label>
+              <label class="label"
+                >环境地域 | Region: <code>region</code></label
+              >
+              <div class="control">
+                <input
+                  class="input"
+                  id="region"
+                  type="text"
+                  placeholder="e.g ap-guangzhou"
+                  value="ap-shanghai"
+                />
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">name | name: <code>name</code></label>
               <div class="control">
                 <input
                   class="input"
                   id="name"
                   type="text"
-                  placeholder="e.g ap-guangzhou"
-                  value="DreamyTZK🦄"
+                  placeholder="e.g DreamyTZK"
+                  value="DreamyTZK"
                 />
               </div>
             </div>
             <div class="field">
-              <label class="label"
-                >头像地址 | avatar: <code>avatar</code></label
-              >
+              <label class="label">avatar | avatar: <code>avatar</code></label>
               <div class="control">
                 <input
                   class="input"
                   id="avatar"
                   type="text"
-                  placeholder="https://cdn.jsdelivr.net/npm/kang-static@latest/avatar.jpg"
+                  placeholder="e.g https://cdn.jsdelivr.net/npm/kang-static@latest/avatar.jpg"
                   value="https://cdn.jsdelivr.net/npm/kang-static@latest/avatar.jpg"
                 />
               </div>
             </div>
             <div class="field">
-              <label class="label"
-                >from来源背景颜色 | fromcolor: <code>fromcolor</code></label
-              >
+              <label class="label">limit | limit: <code>limit</code></label>
               <div class="control">
                 <input
                   class="input"
-                  id="fromcolor"
+                  id="limit"
                   type="text"
-                  placeholder="black"
-                  value="black"
+                  placeholder="e.g 5"
+                  value="1"
                 />
               </div>
             </div>
@@ -140,6 +153,13 @@
               <button class="button is-info" onclick="init()">
                 加载 | Init
               </button>
+            </div>
+            <div class="field">
+              <a
+                href="https://twikoo.js.org/quick-start.html#%E5%89%8D%E7%AB%AF%E9%83%A8%E7%BD%B2"
+                target="_blank"
+                >如何集成到博客中？</a
+              >
             </div>
           </div>
           <div class="column">
