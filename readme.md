@@ -18,7 +18,7 @@ ispeakBber
       region: 'ap-shanghai', // 腾讯云地址，默认为上海
       limit: 10, // 每次加载的条数，默认为5
       avatar: 'https://cdn.jsdelivr.net/npm/kang-static@latest/avatar.jpg',
-      fromcolor:'rgb(245, 150, 170)'
+      fromColor:'rgb(245, 150, 170)'
     })
     .then(function() {
       console.log('ispeak 加载完成')

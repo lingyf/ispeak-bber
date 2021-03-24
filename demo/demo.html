@@ -1,3 +1,4 @@
+<!-- template from twikoo -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,7 +7,7 @@
       name="viewport"
       content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"
     />
-    <title>Twikoo Demo</title>
+    <title>iSpeak-bber Demo</title>
     <link
       rel="stylesheet"
       type="text/css"
@@ -49,6 +50,7 @@
             avatar: document.getElementById('avatar').value,
             name: document.getElementById('name').value,
             limit: document.getElementById('limit').value,
+            fromColor: document.getElementById('fromColor').value,
             onCommentLoaded: function() {
               console.log('评论加载完成')
             }
@@ -145,7 +147,21 @@
                   id="limit"
                   type="text"
                   placeholder="e.g 5"
-                  value="1"
+                  value="5"
+                />
+              </div>
+            </div>
+            <div class="field">
+              <label class="label"
+                >fromColor | fromColor: <code>fromColor</code></label
+              >
+              <div class="control">
+                <input
+                  class="input"
+                  id="fromColor"
+                  type="text"
+                  placeholder="e.g black"
+                  value="black"
                 />
               </div>
             </div>
@@ -155,9 +171,7 @@
               </button>
             </div>
             <div class="field">
-              <a
-                href="https://twikoo.js.org/quick-start.html#%E5%89%8D%E7%AB%AF%E9%83%A8%E7%BD%B2"
-                target="_blank"
+              <a href="https://www.antmoe.com/bb/" target="_blank"
                 >如何集成到博客中？</a
               >
             </div>
