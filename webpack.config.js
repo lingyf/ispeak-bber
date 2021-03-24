@@ -7,12 +7,12 @@ const BUILD_PATH = path.resolve(ROOT_PATH, 'dist')
 const version = require('./package.json').version
 const TerserPlugin = require('terser-webpack-plugin')
 const banner =
-  'ispeak v' +
+  'ispeak-bber v' +
   version +
   '\n' +
   '(c) 2020-' +
   new Date().getFullYear() +
-  ' iMaeGoo\n' +
+  ' XiaoKang\n' +
   'Released under the MIT License.\n' +
   'Last Update: ' +
   new Date().toLocaleString()
@@ -40,12 +40,12 @@ module.exports = {
   },
   entry: {
     /* eslint-disable-next-line quote-props */
-    ispeak: './src/js/main.js'
+    'ispeak-bber': './src/js/main.js'
   },
   output: {
     path: BUILD_PATH,
     filename: '[name].min.js',
-    library: 'ispeak',
+    library: 'ispeakBber',
     libraryTarget: 'umd'
   },
   target: ['web', 'es5'],

@@ -1,18 +1,18 @@
 {
   "name": "ispeak-bber",
-  "version": "1.1.0-beta",
+  "version": "1.1.1-beta",
   "description": "",
   "author": "DreamyTZK",
   "license": "MIT",
-  "main": "./dist/ispeak.min.js",
+  "main": "ispeak-bber.min.js",
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
-    "url": "https://gitlab.com/DreamyTZK/iSpeak.git"
+    "url": "https://gitlab.com/DreamyTZK/ispeak-bber"
   },
-  "homepage": "https://www.antmoe.com/speak",
+  "homepage": "https://www.antmoe.com/bb/",
   "scripts": {
     "dev": "webpack serve --mode development",
     "serve": "webpack serve --mode development",

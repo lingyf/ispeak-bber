@@ -8,9 +8,9 @@
 
 ```markdown
 <div id='speak'></speak>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/ispeak-bber@1.1.0-beta/ispeak.min.js" charset="utf-8" ></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/ispeak-bber@1.1.1-beta/ispeak-bber.min.js" charset="utf-8" ></script>
 <script>
-ispeak
+ispeakBber
     .init({
       el: '#speak',
       name: 'DreamyTZK 🦄', // 显示的昵称

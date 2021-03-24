@@ -1,18 +1,20 @@
 <template>
   <div class="xk-footer">
-    Powered by <a href="https://xiaokang.me" target="_blank">iSpeak</a> v{{
+    Powered by
+    <a href="https://www.antmoe.com/bb/" target="_blank">{{ name }}</a> v{{
       version
     }}
   </div>
 </template>
 
 <script>
-import { version } from '../../../package.json';
+import { version, name } from '../../../package.json';
 
 export default {
   data() {
     return {
-      version
+      version,
+      name
     };
   },
   methods: {},

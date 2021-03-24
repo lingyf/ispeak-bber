@@ -54,10 +54,13 @@ export default {
   },
   methods: {
     async login(app) {
-      const auth = app.auth();
-      await auth.anonymousAuthProvider().signIn();
-      // 匿名登录成功检测登录状态isAnonymous字段为true
-      const loginState = await auth.getLoginState();
+      const auth = app.auth({ persistence: 'local' });
+      if (!auth.hasLoginState()) {
+        await auth.anonymousAuthProvider().signIn();
+        // 匿名登录成功检测登录状态isAnonymous字段为true
+        // const loginState = await auth.getLoginState();
+        // console.log(loginState);
+      }
     },
     // 获取总数量
     async getCount() {
@@ -107,8 +110,8 @@ export default {
       env: this.envId,
       region: this.region
     });
-    await this.login(app);
     this.app = app;
+    await this.login(this.app);
     await this.getData();
     await this.getCount();
   }
