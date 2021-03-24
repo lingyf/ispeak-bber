@@ -27,3 +27,6 @@ ispeakBber
 ```
 
 > 其他注意事项： 云数据库名称必须为`talks`才可以，目前不支持指定数据库名称。
+
+## 其他
+本项目构建方式及一些其他零碎点参考[twikoo](https://github.com/imaegoo/twikoo)
