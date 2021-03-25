@@ -51,6 +51,7 @@
             name: document.getElementById('name').value,
             limit: document.getElementById('limit').value,
             fromColor: document.getElementById('fromColor').value,
+            loadingImg: document.getElementById('loadingImg').value,
             onCommentLoaded: function() {
               console.log('评论加载完成')
             }
@@ -162,6 +163,20 @@
                   type="text"
                   placeholder="e.g black"
                   value="black"
+                />
+              </div>
+            </div>
+            <div class="field">
+              <label class="label"
+                >loadingImg | loadingImg: <code>loadingImg</code></label
+              >
+              <div class="control">
+                <input
+                  class="input"
+                  id="loadingImg"
+                  type="text"
+                  placeholder="e.g black"
+                  value="https://cdn.jsdelivr.net/gh/ccknbc-backup/photos/blog/2021-03-08~15-13-23.gif"
                 />
               </div>
             </div>

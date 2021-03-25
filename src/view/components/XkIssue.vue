@@ -1,7 +1,7 @@
 <template>
   <div>
     <xk-info :count="total"></xk-info>
-    <transition-group name="list" tag="p">
+    <transition-group name="list" tag="div">
       <template v-for="bb in bbList">
         <xk-card
           :bbData="bb"
@@ -13,9 +13,9 @@
       </template>
     </transition-group>
     <div class="loading" v-if="loading">
-      <img src="https://7.dusays.com/2021/03/04/d2d5e983e2961.gif" alt="" />
+      <img :src="loadingImg" alt="loading" />
     </div>
-    <button @click="getData" v-if="bbList.length < total">下一页</button>
+    <button @click="getData" v-if="bbList.length < total">再翻翻</button>
     <div style="text-align: center; margin-top: 20px" v-if="showMessage">
       {{ message }}
     </div>
@@ -49,7 +49,9 @@ export default {
       limit: 5,
       app: null,
       showMessage: false,
-      fromColor: ''
+      fromColor: '',
+      loadingImg: 'https://7.dusays.com/2021/03/04/d2d5e983e2961.gif',
+      dbName: 'talks'
     };
   },
   methods: {
@@ -65,7 +67,7 @@ export default {
     // 获取总数量
     async getCount() {
       const db = await this.app.database();
-      const { total } = await db.collection('talks').count();
+      const { total } = await db.collection(this.dbName).count();
       this.total = total;
     },
     async getData() {
@@ -97,15 +99,19 @@ export default {
       avatar,
       envId,
       limit = 5,
+      dbName = 'talks',
       region = 'ap-shanghai',
-      fromColor = 'rgb(245, 150, 170)'
+      fromColor = 'rgb(245, 150, 170)',
+      loadingImg = 'https://7.dusays.com/2021/03/04/d2d5e983e2961.gif'
     } = Vue.prototype.$speakData;
     this.name = name;
     this.envId = envId;
     this.avatar = avatar;
     this.fromColor = fromColor;
     this.region = region;
+    this.dbName = dbName;
     this.limit = Number(limit);
+    this.loadingImg = loadingImg;
     const app = cloudbase.init({
       env: this.envId,
       region: this.region
