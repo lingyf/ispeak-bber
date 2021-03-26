@@ -5,6 +5,7 @@
 
 - [https://www.antmoe.com/bb](https://www.antmoe.com/bb)
 - [https://blog.ccknbc.cc/essay/](https://blog.ccknbc.cc/essay/)
+- [https://blog.imzjw.cn/talking/](https://blog.imzjw.cn/talking/)
 - ...
 
 ## 重要说明
