@@ -74,7 +74,7 @@ module.exports = {
         watch: true
       }
     ],
-    port: 9820,
+    port: 9821,
     host: 'localhost',
     open: true,
     hot: true,

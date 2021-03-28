@@ -3,7 +3,7 @@
  * @author: 小康
  * @url: https://xiaokang.me
  * @Date: 2021-03-19 09:17:45
- * @LastEditTime: 2021-03-27 20:33:57
+ * @LastEditTime: 2021-03-28 19:01:48
  * @LastEditors: 小康
 -->
 <template>
@@ -181,14 +181,16 @@ export default {
 }
 
 @media screen and (min-width: 768px) {
-  #article-container .xk-card-content >>> .fancybox {
+  #article-container .xk-card-content >>> .fancybox,
+  #article-container .xk-card-content >>> video {
     display: inline-block;
     max-width: 24%;
   }
 }
 
 @media screen and (max-width: 768px) {
-  #article-container .xk-card-content >>> .fancybox {
+  #article-container .xk-card-content >>> .fancybox,
+  #article-container .xk-card-content >>> video {
     display: inline-block;
     max-width: 49%;
   }
