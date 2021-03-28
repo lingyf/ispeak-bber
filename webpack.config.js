@@ -10,7 +10,7 @@ const banner =
   'ispeak-bber v' +
   version +
   '\n' +
-  '(c) 2020-' +
+  '(c) 2021-' +
   new Date().getFullYear() +
   ' XiaoKang\n' +
   'Released under the MIT License.\n' +
@@ -40,7 +40,8 @@ module.exports = {
   },
   entry: {
     /* eslint-disable-next-line quote-props */
-    'ispeak-bber': './src/js/main.js'
+    'ispeak-bber': './src/js/main.js',
+    'ispeak-bber-nomd': './src/js/main-nomd.js'
   },
   output: {
     path: BUILD_PATH,

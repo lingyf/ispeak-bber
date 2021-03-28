@@ -3,7 +3,7 @@
  * @author: 小康
  * @url: https://xiaokang.me
  * @Date: 2021-03-19 09:17:45
- * @LastEditTime: 2021-03-28 19:01:48
+ * @LastEditTime: 2021-03-28 23:50:25
  * @LastEditors: 小康
 -->
 <template>
@@ -39,7 +39,7 @@
   </div>
 </template>
 <script>
-import marked from 'marked';
+import Vue from 'vue';
 
 export default {
   props: ['bbData', 'name', 'avatar', 'fromColor'],
@@ -57,17 +57,39 @@ export default {
   },
   methods: {
     formatBody: (body) => {
-      const renderer = {
-        image(href, title, text) {
-          console.log(href);
-          return `
-          <a href="${href}" target="_blank" data-fancybox="group" class="fancybox">
+      // 判断是否使用marked渲染
+      if (Vue.prototype.$marked) {
+        const marked = Vue.prototype.$marked;
+        const renderer = {
+          image(href, title, text) {
+            console.log(href);
+            return `<a href="${href}" target="_blank" data-fancybox="group" class="fancybox">
            <img src="${href}" alt='${text}'>
           </a>`;
+          }
+        };
+        marked.use({ renderer });
+        return marked(body, { breaks: true, gfm: true });
+      } else {
+        function urlToLink(str) {
+          var re = /\bhttps?:\/\/(?!\S+(?:jpe?g|png|bmp|gif|webp|gif))\S+/g;
+          var re_forpic = /\bhttps?:[^:<>"]*\/([^:<>"]*)(\.(jpeg)|(png)|(jpg)|(webp))/g;
+          str = str.replace(re_forpic, function (imgurl) {
+            return `<a href="${imgurl}" target="_blank" data-fancybox="group" class="fancybox">
+           <img src="${imgurl}">
+          </a>`;
+          });
+          str = str.replace(re, function (website) {
+            return (
+              " <a href='" +
+              website +
+              "'rel='noopener' target='_blank'>↘链接↙</a> "
+            );
+          });
+          return str;
         }
-      };
-      marked.use({ renderer });
-      return marked(body, { breaks: true, gfm: true });
+        return urlToLink(body);
+      }
     },
     // format time
     // code from https://www.heson10.com/posts/3510.html
@@ -125,8 +147,7 @@ export default {
       }
       return result;
     }
-  },
-  watch: {}
+  }
 };
 </script>
 <style scoped>
