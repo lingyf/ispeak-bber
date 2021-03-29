@@ -3,7 +3,7 @@
  * @author: 小康
  * @url: https://xiaokang.me
  * @Date: 2021-03-19 09:17:45
- * @LastEditTime: 2021-03-29 09:02:00
+ * @LastEditTime: 2021-03-29 22:12:59
  * @LastEditors: 小康
 -->
 <template>
@@ -72,7 +72,9 @@ export default {
         return marked(body, { breaks: true, gfm: true });
       } else {
         function urlToLink(str) {
-          const re = /\bhttps?:\/\/(?!\S+(?:jpe?g|png|bmp|gif|webp|gif))\S+/g;
+          // const qqWechatEmotionParser = require('qq-wechat-emotion-parser');
+          const re = /\bhttps?:\/\/(?!\S+(?:jpe?g|png|bmp|gif|webp|gif|mp4))\S+/g;
+
           // 匹配html标签发布的图片
           const re_tagImg = /<img [^>]*src=['"]([^'"]+)[^>]*>/gm;
           str = str.replace(re_tagImg, function (raw, url, text, uuu) {
@@ -92,6 +94,9 @@ export default {
           str = str.replace(re, function (website) {
             return `<a href='${website}' rel='noopener' target='_blank'>↘链接↙</a>`;
           });
+          if (window.qqWechatEmotionParser) {
+            str = qqWechatEmotionParser(str);
+          }
           return str;
         }
         return urlToLink(body);
