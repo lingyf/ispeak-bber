@@ -18,9 +18,9 @@
 ```markdown
 <div id='speak'></speak>
 <!-- 使用markdown渲染 -->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/ispeak-bber/ispeak-bber.min.js" charset="utf-8" ></script>
+<!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/ispeak-bber/ispeak-bber-md.min.js" charset="utf-8" ></script> -->
 <!-- 不使用markdown渲染 -->
-<!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/ispeak-bber/ispeak-bber-nomd.min.js" charset="utf-8" ></script> -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/ispeak-bber/ispeak-bber.min.js" charset="utf-8" ></script>
 <script>
 ispeakBber
     .init({
@@ -43,7 +43,6 @@ ispeakBber
 
 > 其他注意事项： 云数据库名称必须为`talks`才可以，目前不支持指定数据库名称。示例代码中未指定版本号，如果你想指定版本号可以到[jsdelivr](https://cdn.jsdelivr.net/npm/ispeak-bber/)查看最新版本并引用。
 
-> 不适用markdown渲染只需要使用`https://cdn.jsdelivr.net/npm/ispeak-bber/ispeak-bber-nomd.min.js`链接即可
 
 ## 是否使用markdown
 

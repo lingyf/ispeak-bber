@@ -40,8 +40,8 @@ module.exports = {
   },
   entry: {
     /* eslint-disable-next-line quote-props */
-    'ispeak-bber': './src/js/main.js',
-    'ispeak-bber-nomd': './src/js/main-nomd.js'
+    'ispeak-bber-md': './src/js/main-md.js',
+    'ispeak-bber': './src/js/main.js'
   },
   output: {
     path: BUILD_PATH,
@@ -75,7 +75,7 @@ module.exports = {
         watch: true
       }
     ],
-    port: 9821,
+    port: 9820,
     host: 'localhost',
     open: true,
     hot: true,

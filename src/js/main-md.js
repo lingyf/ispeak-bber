@@ -8,8 +8,9 @@
  */
 
 import { render } from '../view'
+import marked from 'marked'
 async function init(options) {
-  render(options)
+  render(options, marked)
 }
 export default init
 
