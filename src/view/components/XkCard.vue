@@ -3,7 +3,7 @@
  * @author: 小康
  * @url: https://xiaokang.me
  * @Date: 2021-03-19 09:17:45
- * @LastEditTime: 2021-03-28 23:50:25
+ * @LastEditTime: 2021-03-29 09:02:00
  * @LastEditors: 小康
 -->
 <template>
@@ -72,19 +72,25 @@ export default {
         return marked(body, { breaks: true, gfm: true });
       } else {
         function urlToLink(str) {
-          var re = /\bhttps?:\/\/(?!\S+(?:jpe?g|png|bmp|gif|webp|gif))\S+/g;
-          var re_forpic = /\bhttps?:[^:<>"]*\/([^:<>"]*)(\.(jpeg)|(png)|(jpg)|(webp))/g;
-          str = str.replace(re_forpic, function (imgurl) {
-            return `<a href="${imgurl}" target="_blank" data-fancybox="group" class="fancybox">
-           <img src="${imgurl}">
-          </a>`;
+          const re = /\bhttps?:\/\/(?!\S+(?:jpe?g|png|bmp|gif|webp|gif))\S+/g;
+          // 匹配html标签发布的图片
+          const re_tagImg = /<img [^>]*src=['"]([^'"]+)[^>]*>/gm;
+          str = str.replace(re_tagImg, function (raw, url, text, uuu) {
+            return url;
+          });
+          // 处理markdown格式的图片
+          const re_mdImg = /!\[(.*?)\]\((.*?)\)/gm;
+          str = str.replace(re_mdImg, function (raw, text, url) {
+            return url;
+          });
+          // 替换所有图片链接为图片
+          const re_forpic = /\bhttps?:[^:<>"]*\/([^:<>"]*)(\.(jpeg)|(png)|(jpg)|(webp))/g;
+          str = str.replace(re_forpic, function (url) {
+            return `<a href="${url}" target="_blank" data-fancybox="group" class="fancybox">
+            <img src="${url}" ></a>`;
           });
           str = str.replace(re, function (website) {
-            return (
-              " <a href='" +
-              website +
-              "'rel='noopener' target='_blank'>↘链接↙</a> "
-            );
+            return `<a href='${website}' rel='noopener' target='_blank'>↘链接↙</a>`;
           });
           return str;
         }
