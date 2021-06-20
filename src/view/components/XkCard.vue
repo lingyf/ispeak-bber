@@ -3,7 +3,7 @@
  * @author: 小康
  * @url: https://xiaokang.me
  * @Date: 2021-03-19 09:17:45
- * @LastEditTime: 2021-05-25 22:59:21
+ * @LastEditTime: 2021-06-20 16:26:01
  * @LastEditors: 小康
 -->
 <template>
@@ -73,7 +73,8 @@ export default {
       } else {
         function urlToLink(str) {
           // const qqWechatEmotionParser = require('qq-wechat-emotion-parser');
-          const re = /\bhttps?:\/\/(?!\S+(?:jpe?g|png|bmp|gif|webp|gif|mp4))\S+/g;
+          const re =
+            /\bhttps?:\/\/(?!\S+(?:jpe?g|png|bmp|gif|webp|gif|mp4))\S+/g;
 
           // 匹配html标签发布的图片
           const re_tagImg = /<img [^>]*src=['"]([^'"]+)[^>]*>/gm;
@@ -86,7 +87,8 @@ export default {
             return url;
           });
           // 替换所有图片链接为图片
-          const re_forpic = /\bhttps?:[^:<>"]*\/([^:<>"]*)(\.(jpeg)|(png)|(jpg)|(webp))/g;
+          const re_forpic =
+            /\bhttps?:[^:<>"]*\/([^:<>"]*)(\.(jpeg)|(png)|(jpg)|(webp))/g;
           str = str.replace(re_forpic, function (url) {
             return `<a href="${url}" target="_blank" data-fancybox="group" class="fancybox">
             <img src="${url}" ></a>`;
@@ -205,6 +207,7 @@ export default {
 }
 .xk-card .xk-card-header .xk-card-name .avatar-img {
   width: 100%;
+  height: 100%;
   border-radius: 50%;
 }
 
