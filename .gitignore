@@ -116,3 +116,4 @@ dist
 .pnp.*
 
 stats.json
+package-lock.json

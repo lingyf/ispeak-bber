@@ -15,7 +15,7 @@
     <div class="loading" v-if="loading">
       <img :src="loadingImg" alt="loading" />
     </div>
-    <button @click="getData" v-if="bbList.length < total">再翻翻</button>
+    <button @click="getData" v-if="bbList.length < total">更多动态</button>
     <div style="text-align: center; margin-top: 20px" v-if="showMessage">
       {{ message }}
     </div>
@@ -43,7 +43,7 @@ export default {
       avatar: '',
       bbList: [],
       total: 0,
-      message: '正在加载。。。。',
+      message: '',
       loading: true,
       page: 1,
       limit: 5,
@@ -164,7 +164,7 @@ button {
   font-weight: 500;
   text-align: center;
   transition: all 0.5s ease-out;
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background: #00aa90;
   background-size: 1000% 1000%;
   animation: Gradient 90s linear infinite;
   outline: 0;
