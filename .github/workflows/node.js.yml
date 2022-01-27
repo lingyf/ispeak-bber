@@ -31,7 +31,7 @@ jobs:
         npm run build
     - run: |
         git config user.name Albert
-        git config user.email lingyf@protonmail.com
+        git config user.email lingyf@hotmail.com
         git add --force dist
         git commit -m "build: generated"
         git push
