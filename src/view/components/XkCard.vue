@@ -24,7 +24,7 @@
             fill="#a5aaf8"
           ></path>
         </svg>
-        <div class="xk-card-time">{{ date }}</div>
+        <div class="xk-card-time">· {{ date }}</div>
       </div>
     </div>
     <div class="xk-card-content" v-html="content"></div>
@@ -64,7 +64,7 @@ export default {
           image(href, title, text) {
             console.log(href);
             return `<a href="${href}" target="_blank" data-fancybox="group" class="fancybox">
-           <img src="${href}" alt='${text}'>
+           <img src="${href}" data-lazy-src="${href}" class="medium-zoom-image entered loaded" data-ll-status="loaded">
           </a>`;
           }
         };
