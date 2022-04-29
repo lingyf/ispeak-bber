@@ -63,7 +63,7 @@ export default {
         const renderer = {
           image(href, title, text) {
             console.log(href);
-            return `<a href="${href}" target="_blank" data-fancybox="group" class="fancybox">
+            return `<a href="${href}" target="_blank" class="medium-zoom-image entered loaded">
            <img src="${href}" data-lazy-src="${href}" class="medium-zoom-image entered loaded" data-ll-status="loaded">
           </a>`;
           }

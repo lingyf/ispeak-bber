@@ -12,8 +12,8 @@
         />
       </template>
     </transition-group>
-    <div class="loading" v-if="loading">
-      <img :src="loadingImg" alt="loading" />
+    <div class="el-loading-spinner">
+      <svg viewBox="25 25 50 50" class="circular"><circle cx="50" cy="50" r="20" fill="none" class="path"></circle></svg>
     </div>
     <button @click="getData" v-if="bbList.length < total">更多动态</button>
     <div style="text-align: center; margin-top: 20px" v-if="showMessage">
@@ -137,6 +137,28 @@ export default {
 }
 .loading {
   text-align: center;
+}
+.el-loading-spinner {
+    top: 50%;
+    margin-top: -21px;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+}
+.el-loading-spinner .circular {
+    height: 42px;
+    width: 42px;
+    -webkit-animation: loading-rotate 2s linear infinite;
+    animation: loading-rotate 2s linear infinite;
+}
+.el-loading-spinner .path {
+    -webkit-animation: loading-dash 1.5s ease-in-out infinite;
+    animation: loading-dash 1.5s ease-in-out infinite;
+    stroke-dasharray: 90,150;
+    stroke-dashoffset: 0;
+    stroke-width: 2;
+    stroke: #7f85f5;
+    stroke-linecap: round;
 }
 @keyframes Gradient {
   0% {
