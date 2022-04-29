@@ -164,7 +164,7 @@ button {
   font-weight: 500;
   text-align: center;
   transition: all 0.5s ease-out;
-  background: #00aa90;
+  background: #5b5fc7;
   background-size: 1000% 1000%;
   animation: Gradient 90s linear infinite;
   outline: 0;
